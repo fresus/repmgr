@@ -135,6 +135,7 @@ typedef struct
 	int			primary_notification_timeout;
 	int			repmgrd_standby_startup_timeout;
 	char		repmgrd_pid_file[MAXPGPATH];
+	char		failover_validation_command[MAXPGPATH];
 
 	/* BDR settings */
 	bool		bdr_local_monitoring_only;
@@ -179,7 +180,7 @@ typedef struct
 		/* node information */ \
 		UNKNOWN_NODE_ID, "", "", "", "", "", "", "", REPLICATION_TYPE_PHYSICAL,	\
 		/* log settings */ \
-		"", "", "", DEFAULT_LOG_STATUS_INTERVAL,	\
+		"", "", "", DEFAULT_LOG_STATUS_INTERVAL, \
 		/* standby clone settings */ \
 		false, "", "", { NULL, NULL }, "", false, "", false, "", \
 		/* standby promote settings */ \
@@ -206,7 +207,7 @@ typedef struct
         false, -1, \
 		DEFAULT_ASYNC_QUERY_TIMEOUT, \
 		DEFAULT_PRIMARY_NOTIFICATION_TIMEOUT,	\
-		-1, "", \
+		-1, "", "",	\
 		/* BDR settings */ \
 		false, DEFAULT_BDR_RECOVERY_TIMEOUT, \
 		/* service settings */ \
