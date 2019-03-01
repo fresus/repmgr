@@ -135,6 +135,7 @@ typedef struct
 	int			primary_notification_timeout;
 	int			repmgrd_standby_startup_timeout;
 	char		repmgrd_pid_file[MAXPGPATH];
+	bool		standby_disconnect_on_failover;
 
 	/* BDR settings */
 	bool		bdr_local_monitoring_only;
@@ -205,8 +206,8 @@ typedef struct
         DEFAULT_RECONNECTION_INTERVAL, \
         false, -1, \
 		DEFAULT_ASYNC_QUERY_TIMEOUT, \
-		DEFAULT_PRIMARY_NOTIFICATION_TIMEOUT,	\
-		-1, "", \
+		DEFAULT_PRIMARY_NOTIFICATION_TIMEOUT, \
+		-1, "", false, \
 		/* BDR settings */ \
 		false, DEFAULT_BDR_RECOVERY_TIMEOUT, \
 		/* service settings */ \
